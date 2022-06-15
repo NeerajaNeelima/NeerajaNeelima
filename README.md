@@ -1,0 +1,3 @@
+- 👋 Hi, I’m NeerajaNeelima
+- 👀 I’m interested in web development and data science
+- 🌱 I’m currently learning wed development
