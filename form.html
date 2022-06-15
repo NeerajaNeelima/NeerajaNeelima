@@ -1,0 +1,244 @@
+<html>
+	<head>
+		<title>Application Form </title>
+		<style>
+			input[type=text]{
+				border: 3px solid #555;
+				width:30%;
+				height:5%;
+				padding : 12px 20px;
+				margin:8px 0;
+				box-sizing: border-box;
+				border:2px lightgreen;
+				border-radius: 4px;
+				background-color: lightgreen;
+				color:black;
+				font-family: bold;
+			    font-color:3px solid black;
+			    box-shadow: 1px 1px blue;
+			}
+			input[type=password]{
+				border: 3px solid #555;
+				width:30%;
+				height:5%;
+				padding : 12px 20px;
+				margin:8px 0;
+				box-sizing: border-box;
+				border:2px solid black;
+				border-radius: 4px;
+				background-color: lightgreen;
+				color:black;
+				font-family: bold;
+			    font-color:3px solid black;
+			}
+            select{
+				width:30%;
+				height: 6%
+				padding: 12px 23px;
+				border:2px solid black;
+				border-radius: 2px;
+                background-color: lightgreen;
+                box-sizing:border-box;
+                font-family: bold;
+                font-size: 16px;
+			}
+			input[type=submit]{
+				border-color: green;
+				cursor:pointer;
+				margin: 4px 5px;
+				background-color: green;
+				color:white;
+				padding: 5px 7px
+
+			}
+			input[type=reset]{
+				border-color: green;
+				cursor:pointer;
+				margin: 4px 5px;
+				background-color: green;
+				color:white;
+				float:right;
+				padding: 5px 7px;
+				
+			}
+			input[type=reset]:hover{
+				background-color: lightblue;
+				border-color: blue;
+				color:blue;
+				font-family: solid bold;
+				font-size: 18px;
+			}
+			input[type=submit]:hover{
+				background-color: lightblue;
+				border-color: blue;
+				color:blue;
+				font-family: solid bold;
+				font-size: 18px;
+			}
+			label{
+				padding: 12px 12px 12px 0;
+				display: inline-block;
+				font-family: bold;
+				font-size: 2px solid black;	
+				}	
+			textarea{
+				width:30%;
+				height: 5%;
+				float:center;
+				padding: 12px 20px;
+				box-sizing: border-box;
+				resize: vertical;
+				border-radius: 2px;
+				background-color: lightgreen;
+				border: 2px solid black;
+			}
+			input[type=file]::file-selector-button{
+              background-color:  lightgreen;
+              border: 2px lightgreen;
+              padding: .2em .4em;
+              border-radius: 2px;
+              transition: 1s;
+              background-size: cover;
+              position:relative;
+              float:right;
+			}	
+			input[type=file]::file-selector-button:hover{
+				background-color:lightgreen;
+				border: 2px solid green;
+			}
+			input[type="radio"]:checked:after{
+				accent-color:green;
+			}
+			input[name="file3"]
+			{
+			visibility: hidden;
+			}
+	    </style>
+	</head>
+	<body>
+		<form id="form1" onsubmit="return verfiy(),nameverfiy(),phoneverify(),email()">
+			<fieldset>
+				<legend>Registration Form</legend>
+				<lable>First Name :</lable><input type="text" placeholder="Enter your first name" id="first"/>
+				Last Name :<input type="text" placeholder="Enter your last name " align="right" id="last"/> <br/>
+				Address :<textarea row="3" cols="4" ></textarea></br>
+				Email id : <input type="text" placeholder="Enter your email id" id="mail"/>
+				<br/>
+				Password :<input type="password" placeholder="Password"  id="password"/><br/>
+				Phone number : <input type="text" placeholder="Enter phone number" id="phone"/><br/>
+				Date of Birth : <input type="Date" placeholder="dd/mm/yyyy"/><br/>
+				Select gender : <input type="radio" name="gender"/>Male
+				<input type="radio" name="gender" />Female <br/>
+				Moles on the boyd : 1.<input type="text"/> 2.<input type="text"/><br/>
+				Physically Handicapped : Yes <input type="radio" name="ph"value="yes" id="yes" onclick="myfunction()"/> No <input type="radio" name="ph" value="No" id="no" onclick="myfunction2()"/><input type="file" id="myfile1" name="file3"/><br/>
+				Select State :<select name="state">
+					<optgroup lable="District">
+						<option value="Andhra Pradesh ">Andhra Pradesh </option>
+						<option value="Assom"> Assom </option>
+						<option value="Arunachal Pradesh"> Arunachal Pradesh </option>
+					</optgroup>
+                    </select><br/>
+                Higher Qualification :<select name="Qualification">
+                	<optgroup label="Education">
+                		<option value="10 th"> 10 th</option>
+                		<option value="Inter"> Inter </option>
+                		<option value="Diploma">Diploma</option>
+                		<option value="B.Tech"> B.Tech</option>
+                		<option value="M.tech"> M.Tech</option>
+                	</optgroup>
+                </select><input type="file" id="myfile2" name="file"/><br/>
+                Certificate provided by :<br/>
+                <input type="checkbox" name="Pa"/> NCC <br/>
+                <input type="checkbox" name="Pa"/> NSS <br/>
+                <input type="checkbox" name="Pa"/> Red cross<br/>
+                <input type="checkbox" name="Pa"/> Scout and Guides <br/>
+                <input type="checkbox" name="Pa"/> Sports<br/>
+                <input type="file" id="myfile3" name="file"/><br/>
+                <input type="submit" value="Submit" />
+                <input type="reset" value="Reset" align="right" />
+			</fielset>
+		</form>
+		<script type="text/javascript">
+			function myfunction()
+			{
+				
+		        var y=document.getElementById("myfile1");
+		        y.style.visibility='visible';
+		    }
+		    function myfunction2()
+			{
+				
+		        var y=document.getElementById("myfile1");
+		        y.style.visibility='hidden';
+		    }
+		    function verfiy()
+		    {
+                var p=document.getElementById("password").value;
+                if(p=="") 
+                {   
+                alert("Please enter the password ! !.......");
+                return false;
+                }
+                if(p.length<8)
+                {
+                	alert("Minimum lenth of your password is 8");
+                	return false;
+                	}
+                if(p.length>15)
+                {
+                	alert("Maximum length of your password is 15");
+                	return false;
+                }
+                if(p=="Neelima@143")
+                {
+                	alert("Password is correct");
+                	return false;
+                }
+                else
+                	alert("Password is incorrect")
+
+		    }  
+		    function nameverfiy()
+		    {
+		    	var lname=document.getElementById("first").value;
+		    	var fname=document.getElementById("last").value;
+		    	if(lname==""&&fname=="")
+		    	{
+		    		alert("Please enter Name");
+		    	}
+		    	if((lname.length<5)&&(fname.length<5))
+		    	{
+		    		alert("Minimum length for a name is 5");
+		    		return false;
+		    	}
+		    	if((lname.length>30)&&(fname.length>30))
+		    	{
+		    		alert("Maximum length for a name is 30");
+		    		return false;
+		    	}
+		    }
+		    function phoneverify()
+		    {
+		    	var p=document.getElementById("phone").value;
+		    	if(p=="")
+		    		alert("Please enter contact number");
+		    	if((p.lenth<10)&&(p.length>10))
+		    		alert("Maximum and Minimum length is 10");
+		    }
+		    function email()
+		    {
+		    	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		    	var e=document.getElementById("mail").value;
+               if(e==mailformat)
+               {
+                	alert("Valid email");
+
+               }
+                else
+                	alert("Invalid email");
+               
+		    }
+		</script>
+		    
+	</body>
+</html>
